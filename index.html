@@ -1,1 +1,44 @@
-あ
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>警告</title>
+<style>
+    body {
+        background-color: black;
+        color: lime;
+        font-family: monospace;
+        padding: 20px;
+        animation: flicker 1s infinite;
+    }
+    @keyframes flicker {
+        0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+        20%, 24%, 55% { opacity: 0.2; }
+    }
+    .red { color: red; font-weight: bold; }
+</style>
+</head>
+<body>
+<pre>
+<span class="red">あなたは乗っ取られました。</span>
+警告：あなたのデバイスは完全に制御されています。
+解除するには……（ジョーク）お菓子を送ってください。
+
+※これは冗談です。本当に危険ではありません。
+</pre>
+<script>
+let i = 0;
+let text = document.body.innerHTML;
+document.body.innerHTML = "";
+function typeWriter() {
+    if (i < text.length) {
+        document.body.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 50);
+    }
+}
+typeWriter();
+</script>
+</body>
+</html>^_^
