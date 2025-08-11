@@ -20,20 +20,23 @@
 </style>
 </head>
 <body>
-<pre>
+<pre id="message">
 <span class="red">あなたは乗っ取られました。</span>
 警告：あなたのデバイスは完全に制御されています。
 解除するには……（ジョーク）お菓子を送ってください。
 
 ※これは冗談です。本当に危険ではありません。
 </pre>
+
 <script>
+let pre = document.getElementById("message");
+let text = pre.innerText; // タグを無視してテキストだけ取得
+pre.innerText = ""; // 中身を空にする
 let i = 0;
-let text = document.body.innerHTML;
-document.body.innerHTML = "";
+
 function typeWriter() {
     if (i < text.length) {
-        document.body.innerHTML += text.charAt(i);
+        pre.innerText += text.charAt(i);
         i++;
         setTimeout(typeWriter, 50);
     }
@@ -41,4 +44,4 @@ function typeWriter() {
 typeWriter();
 </script>
 </body>
-</html>^_^
+</html>
